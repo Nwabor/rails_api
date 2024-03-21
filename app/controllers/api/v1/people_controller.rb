@@ -6,14 +6,13 @@ module Api
       # GET /people
       def index
         @people = Person.all
-        puts @people
 
-        render json: @people
+        render json: @people.as_json(only: [:id, :first_name, :last_name, :gender, :given_last_name])
       end
 
       # GET /people/1
       def show
-        render json: @person
+        render json: @people.as_json(only: [:id, :first_name, :last_name, :gender, :given_last_name])
       end
 
       # POST /people
@@ -50,7 +49,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def person_params
-        params.require(:person).permit(:first_name, :last_name)
+        params.require(:person).permit(:first_name, :last_name, :gender, :given_last_name)
       end
     end
   end
