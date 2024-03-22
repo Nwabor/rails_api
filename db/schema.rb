@@ -12,10 +12,10 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_03_18_121331) do
   create_table "people", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "given_last_name"
-    t.string "gender"
+    t.string "gender", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,6 +31,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_121331) do
     t.index ["person_two_id"], name: "index_person_relationships_on_person_two_id"
   end
 
-  add_foreign_key "person_relationships", "person_ones"
-  add_foreign_key "person_relationships", "person_twos"
+  add_foreign_key "person_relationships", "people", column: "person_one_id"
+  add_foreign_key "person_relationships", "people", column: "person_two_id"
 end

@@ -1,4 +1,4 @@
 class PersonRelationship < ApplicationRecord
-  belongs_to :person_one
-  belongs_to :person_two
+  belongs_to :person_one, class_name: 'Person'
+  belongs_to :person_two, class_name: 'Person'
 end
