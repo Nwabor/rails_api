@@ -1,4 +1,8 @@
 class Person < ApplicationRecord
+  #Association for Jobs relationship
+  has_many :person_jobs, dependent: :destroy
+  has_many :jobs, through: :person_jobs
+  #Association for person relationship
   has_many :person_relationships_one, class_name: 'PersonRelationship', foreign_key: :person_one_id
   has_many :person_relationships_two, class_name: 'PersonRelationship', foreign_key: :person_two_id
   

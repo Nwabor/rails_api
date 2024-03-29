@@ -91,3 +91,25 @@ PersonRelationship.create!(person_one: barney, role_one: "parent", person_two: r
 chip = Person.create!(first_name: "Chip", last_name: "Rubble", gender: "male")
 PersonRelationship.create!(person_one: betty, role_one: "parent", person_two: chip, role_two: "child")
 PersonRelationship.create!(person_one: barney, role_one: "parent", person_two: chip, role_two: "child")
+
+# dyno_crane = Job.create!(title: 'dyno crane operator', description: 'using dyno cranes to move rock')
+dyno_crane = Job.create!(title: 'dyno crane operator')
+PersonJob.create!(person: fred, job: dyno_crane, start_date: Date.new(2000,1,1))
+PersonJob.create!(person_id: barney.id, job_id: dyno_crane.id,start_date: Date.new(2001,2,2))
+
+reporter = Job.create!(title: 'news reporter')
+# reporter = Job.create!(title: 'news reporter', description: 'reports latest news')
+# caterer = Job.create!(title: 'cooks food', description: 'cooks food for people')
+caterer = Job.create!(title: 'cooks food')
+PersonJob.create!(person: wilma, job: reporter, start_date: Date.new(2010,10,10), end_date: Date.new(2012,12,12))
+PersonJob.create!(person: wilma, job: caterer, start_date: Date.new(2013,12,12))
+PersonJob.create!(person: betty, job: reporter, start_date: Date.new(2015,2,3), end_date: Date.new(2017,3,4))
+PersonJob.create!(person: betty, job: caterer, start_date: Date.new(2019,3,6))
+
+teacher = Job.create!(title: 'english teacher', description: 'teaches elementary english')
+PersonJob.create!(person: bamm, job: teacher, start_date: Date.new(2020,10,10))
+
+carpenter = Job.create!(title: 'makes furniture', description: 'specailizes in making furniture')
+PersonJob.create!(person: edna, job: carpenter, start_date: Date.new(2018,7,5))
+
+
